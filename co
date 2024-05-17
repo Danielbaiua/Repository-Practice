@@ -1,0 +1,33 @@
+#include <iostream>
+#include <limits> // For std::Numeric_limits
+int main(){
+    int n;
+    //Ask the user to enter the size of the std::array
+    std::cout<< "Enter the size of the array:";
+    std::cin>>n;
+    // validadte imput to ensure a positive size
+    while (n <= 0) {
+        std::cout<< "invalide size, please enter a positive integer :";
+        std::cin >> n;
+    }
+    
+// Dinamically allocate memory for the array
+    int*arr = new int[n];
+    // Ask the user to enter values for each elelment of the array
+    std::cout << "enter" << n << "values for the array:" << std::endl;
+    for (int i = 0; i < n; ++i){
+        std::cout << "element"<< i << ";";
+        std::cin >> arr[i];
+    }
+    // Find the maximum value among the entered value
+    int max = arr[0];
+    for (int i = 1; i < n; ++i){
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+      std::cout << "Maximum value eneterd by the user:" << max<< std::endl;
+    // free the dinamically allocated memory
+    delete[] arr;
+    return 0;
+}
